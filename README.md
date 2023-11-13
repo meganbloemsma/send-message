@@ -10,7 +10,7 @@ This application works with speech-to-text, using [Cognitive Services Speech SDK
 
 ## How it works
 
-When you run [send-message.py](src\send-message.py), it will ask you to start speaking. It will record your message real-time and transcribe it to text. If you haven't reached the 25 words yet, it will prompt you to keep going until you have.
+When you run ['send-message.py'](https://github.com/meganbloemsma/send-message/blob/main/src/send-message.py), it will ask you to start speaking. It will record your message real-time and transcribe it to text. If you haven't reached the 25 words yet, it will prompt you to keep going until you have.
 Then it will show you what the recipient of the spell will actually have received, capping it at 25 words.
 
 It supports 109 languages or variants. A full list can be found [here](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support?tabs=stt#supported-languages). You will need to adjust the language selected on line 9.
