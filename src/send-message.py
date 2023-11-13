@@ -1,21 +1,18 @@
 # pip install azure-cognitiveservices-speech
 
-# set SPEECH_KEY=your-key
-# set SPEECH_REGION=your-region
-
 # Recognize speech from (default) microphone + cap at 25 words
 import os
 import azure.cognitiveservices.speech as speechsdk
 
 def recognize_from_microphone():
     speech_config = speechsdk.SpeechConfig(subscription=os.environ.get('SPEECH_KEY'), region=os.environ.get('SPEECH_REGION'))
-    speech_config.speech_recognition_language = "en-US"
+    speech_config.speech_recognition_language = "en-US" # default language is currently set to US english
 
     audio_config = speechsdk.audio.AudioConfig(use_default_microphone=True)
     speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
 
-    print("Speak into your microphone.")
-    print("")
+    print("\nAs you close your eyes, you focus on the words you want to convey... you take a breath... and you speak:")
+
     recognized_words = []  # To store recognized words
 
     while len(recognized_words) < 25:  # Cap recognition at 25 words
@@ -28,22 +25,23 @@ def recognize_from_microphone():
 
             # Check if the total recognized words exceed the limit
             if len(recognized_words) > 25:
-                recognized_words = recognized_words[:25]  # Cap it at 25 words
+                recognized_words = recognized_words[:25]
 
-            print("Your original message: {}".format(recognized_text))
+            print("\t{}".format(recognized_text)) # Print the recognized text
+                  
         elif speech_recognition_result.reason == speechsdk.ResultReason.NoMatch:
-            print("No speech could be recognized: {}".format(speech_recognition_result.no_match_details))
+            print("\n(Keep going! You haven't reached 25 words yet!)")
         elif speech_recognition_result.reason == speechsdk.ResultReason.Canceled:
             cancellation_details = speech_recognition_result.cancellation_details
             print("Speech Recognition canceled: {}".format(cancellation_details.reason))
             if cancellation_details.reason == speechsdk.CancellationReason.Error:
                 print("Error details: {}".format(cancellation_details.error_details))
                 print("Did you set the speech resource key and region values?")
-            break  # Exit the loop if canceled
+            break
 
     # Output the final recognized words
     recognized_text = ' '.join(recognized_words)
-    print("")
-    print("What was actually sent: {}".format(recognized_text))
+    print("\nThis is what the person actually received:")
+    print("\t{}".format(recognized_text))
 
 recognize_from_microphone()
