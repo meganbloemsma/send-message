@@ -1,4 +1,4 @@
-# ✨ Send Message spell✨
+# ✨ 'Sending' spell✨
 
 ['Sending'](https://www.dndbeyond.com/spells/sending) is a spell used in Dungeons and Dragons 5e:
 
