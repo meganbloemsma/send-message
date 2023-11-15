@@ -26,3 +26,7 @@ The code speaks for itself. Don't forget to set your environment variables befor
 
 Looking for inspiration? Try Critical Role's Jester Lavore and her [Sending spells](https://www.critrolestats.com/jesters-sendings).
 Confused? Watch [this](https://www.youtube.com/watch?v=t1G_vFviUVE) (warning: might contain spoilers for Critical Role Campaign 2).
+
+## Demo
+
+[Watch a short runthrough and demo here.](https://www.youtube.com/watch?v=ZO1OGOCWftY&t=408s)
